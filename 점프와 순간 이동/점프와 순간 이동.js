@@ -1,27 +1,30 @@
 function solution(n) {
     let target_num = n
-    var ans = 1;
-    let tele = 2
+    let ans = 0
+
 
     while (true) {
-        if (target_num === 1) {
-            break
-        } else if (target_num === 1) {
-            break
-        }
-        else if (target_num > tele) {
-            tele = tele * 2
-
+        if (parseInt(target_num % 2) === 0) {
+            //짝수면 그대로 나눈다.
+            target_num = (parseInt(target_num / 2))
         } else {
-            target_num = target_num - (tele / 2)
+            //아니면 - 1즉 앒쪽으로 쩜프
+            target_num = (parseInt((target_num - 1)))
             ans++
         }
+
+
+        if (target_num === 0) {
+            break
+        }
+
+
     }
 
 
 
-    // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-    console.log('Hello Javascript')
 
     return ans;
 }
+
+
