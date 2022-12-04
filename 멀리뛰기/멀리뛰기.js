@@ -6,17 +6,17 @@ function solution(n) {
 
     if (n === 1) {
 
-        return 1
+        return 1 % 1234567
 
     } else if (n === 2) {
-        return 2
+        return 2 % 1234567
     } else {
         let arr = [1, 2]
         for (let i = 2; i < n; i++) {
-            let num = arr[i - 1] + arr[i - 2]
+            num = (arr[i - 2] + arr[i - 1]) % 1234567;
             arr.push(num)
         }
-
+        console.log(arr)
         return arr[n - 1]
     }
 
