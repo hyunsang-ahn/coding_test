@@ -1,7 +1,10 @@
 function solution(s) {
   var answer = -1
   let length = s.length
+  let cnt = 0
+
   for (let i = 0; i < length; i++) {
+    console.log(i)
     let new_str
     console.log(`s를 왼쪽으로 ${i}칸만큼 회전`)
     if (i === 0) {
@@ -11,13 +14,10 @@ function solution(s) {
       //1이상인경우...
       new_str = s.slice(i, length) + s.slice(0, i)
     }
-    let cnt = 0
     let new_arr = new_str.split('')
-
     while (true) {
         if(new_arr.length === 0){
             cnt++
-            console.log('cnt===================',cnt)
             break
         }
 
@@ -31,6 +31,7 @@ function solution(s) {
           //여는 태그라면 닫는태그가 바로 옆에 있어야함.
           if (new_arr[1] === ']') {
             new_arr = new_arr.slice(2, new_arr.length)
+
           } else {
             break
           }
@@ -38,6 +39,7 @@ function solution(s) {
           //여는 태그라면 닫는태그가 바로 옆에 있어야함.
           if (new_arr[1] === '}') {
             new_arr = new_arr.slice(2, new_arr.length)
+
           } else {
             break
           }
@@ -45,13 +47,17 @@ function solution(s) {
           //여는 태그라면 닫는태그가 바로 옆에 있어야함.
           if (new_arr[1] === ')') {
             new_arr = new_arr.slice(2, new_arr.length)
+
           } else {
             break
           }
         }
-        break
       }
     }
   }
-  return answer
+  return cnt
 }
+
+
+
+solution("}]()[{")
