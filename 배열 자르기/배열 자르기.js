@@ -1,17 +1,22 @@
 function solution(n, left, right) {
   let temp_arr = []
-  for(let i=1; i<=n; i++){
-    for(let k=1; k<=n; k++){
-      let temp_arr2 = [i,k]
-      let max_value = Math.max(...temp_arr2)
-      temp_arr.push(max_value)
-    }
-  }
-  console.log(temp_arr)
-  let answer = temp_arr.slice(left, right+1)
-  console.log(answer)
+  for(let i = left; i <= right; i++){
+    // console.log('i================',i)
 
-  return answer
+
+    // console.log('Number.parseInt(a / n)===============',Number.parseInt(i / n))
+
+    // console.log('a % n================',i % n)
+
+
+    // console.log('aMath.max(Number.parseInt(a / n), a % n) + 1================',Math.max(Number.parseInt(i / n), i % n) + 1 % n)
+    temp_arr.push(Math.max(Number.parseInt(i / n), i % n) + 1);
+
+    
+  }
+  // console.log('temp_arr===============',temp_arr)
+
+  return temp_arr
 }
 
 solution(3, 2, 5)
